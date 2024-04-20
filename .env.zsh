@@ -48,6 +48,8 @@ if [ -d $HOME/.c ]; then
     path+=($VCPKG_ROOT)
 fi
 
+export STARSHIP_CONFIG=$ZSH_DOTFILES/theme/starship/starship.toml
+
 typeset -U PATH path
 
 export PATH

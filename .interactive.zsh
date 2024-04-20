@@ -11,8 +11,20 @@ zstyle ':omz:update' mode disabled
 zstyle ':omz:update' verbose silent
 
 autoload -Uz compinit && compinit -C
+autoload -Uz vcs_info add-zsh-hook
+add-zsh-hook precmd vcs_info
+PS1='%~ $vcs_info_msg_0_'
+setopt prompt_subst
 
 # ZSH_THEME=robbyrussell
-ZSH_THEME=daivasmara
 plugins=(gpg-agent ssh-agent history git)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
+
+export PYENV_ROOT="$HOME/.pyenv"
+
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init -)" >/dev/null 2>&1
+eval "$(pyenv virtualenv-init -)" >/dev/null 2>&1
+
+eval "$(starship init zsh)"
