@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+DOTFILES=$HOME/.dotfiles
 ZSH_DOTFILES=$HOME/.dotfiles/zsh
 
 umask 077

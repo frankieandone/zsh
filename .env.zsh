@@ -49,6 +49,7 @@ if [ -d $HOME/.c ]; then
 fi
 
 export STARSHIP_CONFIG=$ZSH_DOTFILES/theme/starship/starship.toml
+export STARSHIP_CACHE=$ZSH_DOTFILES/theme/starship/.cache
 
 typeset -U PATH path
 
