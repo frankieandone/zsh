@@ -17,7 +17,7 @@ PS1='%~ $vcs_info_msg_0_'
 setopt prompt_subst
 
 # ZSH_THEME=robbyrussell
-plugins=(gpg-agent ssh-agent history git)
+plugins=(sudo gpg-agent ssh-agent history git)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 export PYENV_ROOT="$HOME/.pyenv"
