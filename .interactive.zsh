@@ -16,15 +16,13 @@ add-zsh-hook precmd vcs_info
 PS1='%~ $vcs_info_msg_0_'
 setopt prompt_subst
 
-# ZSH_THEME=robbyrussell
-plugins=(sudo gpg-agent ssh-agent history git)
+plugins=(sudo gpg-agent ssh-agent history git git-auto-fetch zsh-autocomplete)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 export PYENV_ROOT="$HOME/.pyenv"
-
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-
 eval "$(pyenv init -)" >/dev/null 2>&1
 eval "$(pyenv virtualenv-init -)" >/dev/null 2>&1
 
 eval "$(starship init zsh)"
+
