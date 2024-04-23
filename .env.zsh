@@ -38,6 +38,9 @@ if [ -d $HOME/.c ]; then
     path+=($VCPKG_ROOT)
 fi
 
+export VOLTA_HOME=$HOME/.volta
+path=($VOLTA_HOME/bin $path)
+
 export STARSHIP_CONFIG=$ZSH_DOTFILES/theme/starship/starship.toml
 export STARSHIP_CACHE=$ZSH_DOTFILES/theme/starship/.cache
 
