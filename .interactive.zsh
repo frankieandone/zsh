@@ -25,4 +25,3 @@ eval "$(pyenv init -)" >/dev/null 2>&1
 eval "$(pyenv virtualenv-init -)" >/dev/null 2>&1
 
 eval "$(starship init zsh)"
-
