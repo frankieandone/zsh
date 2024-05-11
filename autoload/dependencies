@@ -2,11 +2,13 @@
 
 dependencies() {
     local filepath=$ZSH_DOTFILES/dependencies.ssv
-    local packages=($(brew leaves -r))
     local result=()
-    for package in $packages; do
-        package_version=$(brew info --json $package | jq '.[0].versions.stable' | xargs echo)
-        result+=("$package@$package_version")
+
+    echo >$filepath
+    brew leaves -r | while read -r p; do
+        package_name=$(echo "$p" | awk -F '@' '{print $1}')
+        package_version=$(brew info --json=v1 "$p" | jq -r '.[0].versions.stable')
+        echo "${package_name}@${package_version}" >>$filepath
     done
-    echo $result >$filepath
+    cat $filepath
 }
