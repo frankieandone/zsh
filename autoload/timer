@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+timer() {
+    if [ $# -lt 2 ]; then
+        echo "Usage: timer <duration_minutes> <timer_name>"
+        return 1
+    fi
+
+    local timer_name="$1"
+    local duration_minutes=$2
+    local end_time=$(($(date +%s) + duration_minutes * 60))
+    local elapsed_time=0
+
+    # Loop until current time reaches the end time
+    while [ $(date +%s) -lt $end_time ]; do
+        clear
+        elapsed_time=$((end_time - $(date +%s)))
+
+        # Convert remaining seconds to a readable format (HH:MM:SS)
+        printf "Timer: %s\n" "$timer_name"
+        printf "Remaining: %02d:%02d:%02d\n" $((elapsed_time / 3600)) $(((elapsed_time % 3600) / 60)) $((elapsed_time % 60))
+
+        # Sleep for 1 second before updating the timer again
+        sleep 1
+    done
+
+    # Timer is done, display notification
+    clear
+    printf "Timer done: %s\n" "$timer_name"
+
+    # Use macOS built-in notification to notify when timer is done
+    if [[ $(uname -s) == "Darwin" ]]; then
+        osascript -e "display notification \"${timer_name} completed\" with title \"Timer\" sound name \"Glass\""
+    fi
+}
