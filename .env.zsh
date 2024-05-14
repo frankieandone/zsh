@@ -48,4 +48,6 @@ export XDG_CONFIG_HOME=$DOTFILES/app
 
 typeset -U PATH path
 
+source $ZSH_DOTFILES/.private
+
 export PATH
