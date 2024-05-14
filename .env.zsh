@@ -44,6 +44,8 @@ path=($VOLTA_HOME/bin $path)
 export STARSHIP_CONFIG=$ZSH_DOTFILES/theme/starship/starship.toml
 export STARSHIP_CACHE=$ZSH_DOTFILES/theme/starship/.cache
 
+export XDG_CONFIG_HOME=$DOTFILES/app
+
 typeset -U PATH path
 
 export PATH
