@@ -16,12 +16,24 @@ add-zsh-hook precmd vcs_info
 PS1='%~ $vcs_info_msg_0_'
 setopt prompt_subst
 
-plugins=(sudo gpg-agent ssh-agent history git git-auto-fetch zsh-autocomplete)
+plugins=(
+    docker
+    git
+    git-auto-fetch
+    gpg-agent
+    gradle-completion #custom
+    history
+    httpie
+    kind
+    poetry #custom
+    ssh-agent
+    sdk
+    starship
+    sudo
+    zsh-autocomplete #custom
+)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)" >/dev/null 2>&1
-eval "$(pyenv virtualenv-init -)" >/dev/null 2>&1
-
-eval "$(starship init zsh)"
+# pipx install argcomplete if 'argcomplete not found'
+# install autocomplete for pipx
+eval "$(register-python-argcomplete pipx)"

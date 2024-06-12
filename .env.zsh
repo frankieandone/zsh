@@ -5,6 +5,7 @@ path=(
     /opt/homebrew/sbin
     /usr/bin
     /usr/local/bin
+    $HOME/.local/bin
     $path
 )
 
