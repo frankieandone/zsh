@@ -8,7 +8,7 @@ HIST_STAMPS=dd.mm.yyyy
 zstyle ':omz:plugins:*' aliases no
 zstyle ':omz:plugins:git' aliases yes
 zstyle ':omz:update' mode disabled
-zstyle ':omz:update' verbose silent
+zstyle ':omz:update' verbose
 
 autoload -Uz compinit && compinit -C
 autoload -Uz vcs_info add-zsh-hook

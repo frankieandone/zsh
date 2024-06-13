@@ -5,8 +5,10 @@ if command -v nvim &>/dev/null; then
     alias vim=nvim
 fi
 
-if command -v code &>/dev/null; then
-    alias dotconfig="code -n $DOTFILES"
+if command fleet -V &>/dev/null; then
+    alias dotconfig='fleet "$DOTFILES"'
+elif command code -v &>/dev/null; then
+    alias dotconfig='code -n "$DOTFILES"'
 fi
 
 if [ -f /Applications/IntelliJ\ IDEA\ CE.app/Contents/MacOS/idea ]; then
