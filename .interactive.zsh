@@ -24,16 +24,19 @@ plugins=(
     gradle-completion #custom
     history
     httpie
-    kind
     poetry #custom
     ssh-agent
     sdk
     starship
     sudo
+    volta
     zsh-autocomplete #custom
+    zsh-autosuggestions #custom
+    zsh-completions #custom
 )
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 # pipx install argcomplete if 'argcomplete not found'
 # install autocomplete for pipx
 eval "$(register-python-argcomplete pipx)"
+
