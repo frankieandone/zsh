@@ -19,6 +19,10 @@ if [ -f $SDKMAN_HOME ]; then
     unset SDKMAN_HOME
 fi
 
+if [ -d "$HOME/.docker/bin" ]; then
+    path+=("$HOME/.docker/bin")
+fi
+
 if ! echo "$PATH" | grep -q "$HOME/.cargo/bin"; then
     path=($HOME/.cargo/bin $path)
 fi

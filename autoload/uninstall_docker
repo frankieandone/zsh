@@ -1,0 +1,47 @@
+# Remove Docker executables
+sudo rm -rfv /usr/local/bin/docker
+sudo rm -rfv /usr/local/bin/docker-compose
+sudo rm -rfv /usr/local/bin/docker-credential-osxkeychain
+sudo rm -rfv /usr/local/bin/docker-machine
+
+# Remove Docker directories
+sudo rm -rfv /usr/local/bin/docker*
+sudo rm -rfv /usr/local/bin/docker-compose*
+
+# Remove Docker configuration files
+sudo rm -rfv ~/.docker
+
+# Remove Docker Machine configuration
+sudo rm -rfv ~/.docker/machine
+
+# Remove Docker application support files
+sudo rm -rfv /Library/Application\ Support/Docker\ Desktop
+sudo rm -rfv ~/Library/Application\ Support/Docker\ Desktop
+sudo rm -rfv ~/Library/Application\ Support/com.docker.docker
+sudo rm -rfv ~/Library/Caches/com.docker.docker
+sudo rm -rfv ~/Library/Containers/com.docker.docker
+sudo rm -rfv ~/Library/Containers/com.docker.helper
+sudo rm -rfv ~/Library/Group\ Containers/group.com.docker
+
+# Remove Docker preferences
+sudo rm -rfv ~/Library/Preferences/com.docker.docker.plist
+sudo rm -rfv ~/Library/Preferences/com.electron.docker-frontend.plist
+
+# Remove Docker logs
+sudo rm -rfv ~/Library/Logs/Docker\ Desktop
+sudo rm -rfv ~/Library/Logs/com.docker.docker
+
+# Remove Docker keychains
+sudo rm -rfv ~/Library/Keychains/com.docker.*
+
+# Remove Docker settings
+sudo rm -rfv ~/Library/Group\ Containers/group.com.docker
+
+# Remove Docker volumes, images, and containers
+sudo rm -rfv /var/lib/docker
+sudo rm -rfv /var/run/docker
+
+# Remove Docker launch agents
+sudo rm -rfv ~/Library/LaunchAgents/com.docker.helper.plist
+sudo rm -rfv ~/Library/LaunchAgents/com.docker.vmnetd.plist
+
