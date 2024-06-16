@@ -26,3 +26,5 @@ fi
 
 setup_editor && setup_conf_aliases
 
+command kubectl version &>/dev/null && alias k='kubectl';
+
