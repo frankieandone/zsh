@@ -24,6 +24,7 @@ plugins=(
     gradle-completion #custom
     history
     httpie
+    kubectl #custom
     poetry #custom
     ssh-agent
     sdk

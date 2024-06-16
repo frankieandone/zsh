@@ -13,46 +13,24 @@ fpath=($ZSH_DOTFILES/autoload $fpath)
 
 autoload -Uz $ZSH_DOTFILES/autoload/*(:t)
 
-local SDKMAN_HOME="$HOME/.sdkman/bin/sdkman-init.sh"
-if [ -f $SDKMAN_HOME ]; then
-    source "$SDKMAN_HOME"
-    unset SDKMAN_HOME
-fi
+[ ! -z 'cargo -v' ] && path+=("$HOME/.cargo/bin")
 
-if [ -d "$HOME/.docker/bin" ]; then
-    path+=("$HOME/.docker/bin")
-fi
+[ ! -z 'sdk -v' ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-if ! echo "$PATH" | grep -q "$HOME/.cargo/bin"; then
-    path=($HOME/.cargo/bin $path)
-fi
+[ ! -z 'vcpkg -v' ] && export VCPKG_ROOT="$HOME/.c/vcpkg" && path+=("$VCPKG_ROOT")
 
-if [ -d "$HOME/Library/Android/sdk" ]; then
-    export ANDROID_HOME=$HOME/Library/Android/sdk
-    path=(
-        $path
-        $ANDROID_HOME
-        $ANDROID_HOME/platform-tools
-        $ANDROID_HOME/build-tools/34.0.0
-        $ANDROID_HOME/tools
-    )
-fi
+[ ! -z 'volta -v' ] && export VOLTA_HOME="$HOME/.volta" && path+=("$VOLTA_HOME/bin")
 
-if [ -d $HOME/.c ]; then
-    export VCPKG_ROOT=$HOME/.c/vcpkg
-    path+=($VCPKG_ROOT)
-fi
+[ ! -z 'docker -v' ] && path+=("$HOME/.docker/bin")
 
-export VOLTA_HOME=$HOME/.volta
-path=($VOLTA_HOME/bin $path)
+[ ! -z 'kubectl version' ] && source <(kubectl completion zsh | sed 's/kubectl/k/g')
 
-export STARSHIP_CONFIG=$ZSH_DOTFILES/theme/starship/starship.toml
-export STARSHIP_CACHE=$ZSH_DOTFILES/theme/starship/.cache
+export STARSHIP_CONFIG="$ZSH_DOTFILES/theme/starship/starship.toml"
+export STARSHIP_CACHE="$ZSH_DOTFILES/theme/starship/.cache"
 
-export XDG_CONFIG_HOME=$DOTFILES/app
+export XDG_CONFIG_HOME="$DOTFILES/app"
+
+source "$ZSH_DOTFILES/private/.private"
 
 typeset -U PATH path
 
-source $ZSH_DOTFILES/private/.private
-
-export PATH
