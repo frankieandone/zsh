@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+if [ ! -z "$(docker ps -q)" ]; then
+    docker stop $(docker ps -q)
+fi
+
+# docker image prune -af
+# docker network prune -f
+
+# if [ ! z "$(docker volume ls | awk 'FNR == 2 {print}')"]; then
+#     docker volume rm --force $(docker volume ls | awk 'FNR == 2 {print}')
+# fi
+
+docker system prune -af --volumes
+
