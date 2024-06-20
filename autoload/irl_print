@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+[ -z "$1" ] \
+    && echo 'file path is not in args' && return 1;
+
+[ ! -f "$1" ] \
+    && echo 'file does not exist' && return 1;
+
+# lpstat -a | awk '{print $1}' to see default printer
+default_printer=$(lpstat -d |  awk '{split($0,array,":"); print array[2]}' | sed 's/ //g')
+
+[ -z "$default_printer" ] \
+    && echo 'default printer is not set' && return 1;
+
+lp -d "$default_printer" \
+    -o ColorSpace=Gray \
+    -o SECManualDuplexOption=None \
+    -o id_SaveMode=On \
+    -o InputSlot=Auto \
+    -o SkipBlankPages=True \
+    -o MediaType=Default \
+    -o SECResolution=Normal \
+    -o resolution=600dpi \
+    -o ColorModel=Gray \
+    -o id_EdgeEnhance=Normal \
+    -o n_SrcXR=600 \
+    -o n_SrcYR=600 \
+    -o n_Brightness=50 \
+    -o n_Contrast=50 \
+    -o Font=Courier \
+    -o PageSize=A4 \
+    -o PageRegion=A4 \
+    -o ImageableArea=A4 \
+    -o PaperDimension=A4 \
+    -o LeadingEdge=Short \
+    -o ColorModel=Gray \
+    -o fit-to-page \
+    -o media=A4 \
+    "$1"
+
