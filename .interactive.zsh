@@ -17,6 +17,7 @@ PS1='%~ $vcs_info_msg_0_'
 setopt prompt_subst
 
 plugins=(
+    copyfile
     docker
     git
     git-auto-fetch
@@ -31,9 +32,11 @@ plugins=(
     starship
     sudo
     volta
+    you-should-use
     zsh-autocomplete #custom
     zsh-autosuggestions #custom
     zsh-completions #custom
+    zsh-syntax-highlighting
 )
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
