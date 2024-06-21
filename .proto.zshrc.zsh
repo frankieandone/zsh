@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+DOTFILES=$HOME/.dotfiles
+ZSH_DOTFILES=$HOME/.dotfiles/zsh
+
 source $ZSH_DOTFILES/.interactive.zsh
 source $ZSH_DOTFILES/.aliases.zsh
 

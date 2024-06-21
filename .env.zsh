@@ -25,12 +25,5 @@ autoload -Uz $ZSH_DOTFILES/autoload/*(:t)
 
 [ ! -z 'kubectl version' ] && source <(kubectl completion zsh | sed 's/kubectl/k/g')
 
-export STARSHIP_CONFIG="$ZSH_DOTFILES/theme/starship/starship.toml"
-export STARSHIP_CACHE="$ZSH_DOTFILES/theme/starship/.cache"
-
-export XDG_CONFIG_HOME="$DOTFILES/app"
-
-source "$ZSH_DOTFILES/private/.private"
-
 typeset -U PATH path
 

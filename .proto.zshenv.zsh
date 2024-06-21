@@ -1,16 +1,10 @@
-#!/usr/bin/env zsh
+umask 077
 
 DOTFILES=$HOME/.dotfiles
 ZSH_DOTFILES=$HOME/.dotfiles/zsh
 
-umask 077
+source $ZSH_DOTFILES/.env.zsh
 
-if [ -z $DOTFILES_ENV_LOADED ]; then
-    source $ZSH_DOTFILES/.env.zsh
+[ -f "$HOME/.env" ] \
+    && source "$HOME/.env"
 
-    if [ -f $HOME/.env ]; then
-        source $HOME/.env
-    fi
-
-    export DOTFILES_ENV_LOADED=1
-fi

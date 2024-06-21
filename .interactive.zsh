@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+export TERM=xterm-256color
+export XDG_CONFIG_HOME="$DOTFILES/app"
+export STARSHIP_CONFIG="$ZSH_DOTFILES/theme/starship/starship.toml"
+export STARSHIP_CACHE="$ZSH_DOTFILES/theme/starship/.cache"
+
 DISABLE_MAGIC_FUNCTIONS=true
 HYPHEN_INSENSITIVE=true
 COMPLETION_WAITING_DOTS=true
@@ -39,6 +44,7 @@ plugins=(
     zsh-syntax-highlighting
 )
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
+source "$ZSH_DOTFILES/private/.private"
 
 # pipx install argcomplete if 'argcomplete not found'
 # install autocomplete for pipx
